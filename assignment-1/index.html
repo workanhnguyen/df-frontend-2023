@@ -5,10 +5,85 @@
     <meta name="viewport" content="width=device-width" />
     <title>Bookstore</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
-    Hello world
-    <script src="script.js"></script>
+    <div class="wrapper">
+      <!-- Main content -->
+      <div class="container">
+        <!-- Header -->
+        <div class="header">
+          <input class="input header__input" type="text" placeholder="Search books" />
+          <button id="add-book-btn" class="btn btn-primary">Add book</button>
+        </div>
+
+        <!-- Table of data -->
+        <div class="main">
+          <table class="main__table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Topic</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>Author</td>
+                <td>Topic</td>
+                <td>Action</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Add book dialog -->
+      <div id="add-book-dialog" class="overlay">
+        <div class="add-book-dialog">
+          <!-- Dialog header -->
+          <div class="add-book-dialog__header">
+            <p class="add-book-dialog__header__text">Add book</p>
+            <p id="close-add-book-dialog" class="add-book-dialog__header__close-icon">
+              <i class="fa-solid fa-xmark"></i>
+            </p>
+          </div>
+
+          <!-- Dialog inputs -->
+          <div class="add-book-dialog__body">
+            <div class="add-book-dialog__body__input">
+              <label>Name</label>
+              <input class="input" type="text" />
+            </div>
+            <div class="add-book-dialog__body__input">
+              <label>Author</label>
+              <input class="input" type="text" />
+            </div>
+            <div class="add-book-dialog__body__input">
+              <label>Topic</label>
+              <select class="input">
+                <option value="Programming" selected>Programming</option>
+                <option value="Database">Database</option>
+                <option value="DevOps">DevOps</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="add-book-dialog__action">
+            <button class="btn btn-primary">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="script.js"></script>
 </html>
