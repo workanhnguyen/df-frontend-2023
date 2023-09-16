@@ -141,6 +141,10 @@ html {
   font-weight: bold;
 }
 
+.bg-white {
+  background-color: white;
+}
+
 /* ----------------------------------------------------- */
 
 .wrapper {
