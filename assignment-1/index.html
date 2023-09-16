@@ -20,13 +20,19 @@
       <div class="container">
         <!-- Header -->
         <div class="header">
-          <input class="input header__input" type="text" placeholder="Search books" />
-          <button id="add-book-btn" class="btn btn-primary">Add book</button>
+          <input
+            class="input width-200"
+            type="text"
+            placeholder="Search books"
+          />
+          <button class="btn btn-primary" onclick="showAddBookDialog()">
+            Add book
+          </button>
         </div>
 
         <!-- Table of data -->
         <div class="main">
-          <table class="main__table">
+          <table class="width-full border-collapse">
             <thead>
               <tr>
                 <th>Name</th>
@@ -35,40 +41,33 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Name</td>
-                <td>Author</td>
-                <td>Topic</td>
-                <td>Action</td>
-              </tr>
-            </tbody>
+            <tbody id="data-zone"></tbody>
           </table>
         </div>
       </div>
 
       <!-- Add book dialog -->
       <div id="add-book-dialog" class="overlay">
-        <div class="add-book-dialog">
+        <div class="dialog">
           <!-- Dialog header -->
-          <div class="add-book-dialog__header">
-            <p class="add-book-dialog__header__text">Add book</p>
-            <p id="close-add-book-dialog" class="add-book-dialog__header__close-icon">
-              <i class="fa-solid fa-xmark"></i>
+          <div class="flex justify-between items-center">
+            <p class="text-xl font-bold">Add book</p>
+            <p onclick="hideAddBookDialog()">
+              <i class="fa-solid fa-xmark text-xl font-bold"></i>
             </p>
           </div>
 
           <!-- Dialog inputs -->
-          <div class="add-book-dialog__body">
-            <div class="add-book-dialog__body__input">
+          <div class="flex flex-col dialog-body gap-normal">
+            <div class="flex flex-col gap-normal">
               <label>Name</label>
               <input class="input" type="text" />
             </div>
-            <div class="add-book-dialog__body__input">
+            <div class="flex flex-col gap-normal">
               <label>Author</label>
               <input class="input" type="text" />
             </div>
-            <div class="add-book-dialog__body__input">
+            <div class="flex flex-col gap-normal">
               <label>Topic</label>
               <select class="input">
                 <option value="Programming" selected>Programming</option>
@@ -78,8 +77,31 @@
             </div>
           </div>
 
-          <div class="add-book-dialog__action">
+          <div class="width-full flex justify-end">
             <button class="btn btn-primary">Create</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete book dialog -->
+      <div id="delete-book-dialog" class="overlay">
+        <div class="dialog">
+          <!-- Dialog header -->
+          <div class="flex justify-between items-center">
+            <p class="text-xl font-bold">Delete book</p>
+            <p onclick="hideDeleteBookDialog()">
+              <i class="fa-solid fa-xmark text-xl font-bold"></i>
+            </p>
+          </div>
+
+          <!-- Dialog inputs -->
+          <div class="flex flex-col dialog-body gap-normal">
+            <p class="text-center">Do you want to delete this book?</p>
+          </div>
+
+          <div class="width-full flex justify-evenly">
+            <button class="btn btn-secondary">Delete</button>
+            <button class="btn btn-primary" onclick="hideDeleteBookDialog()">Cancel</button>
           </div>
         </div>
       </div>
