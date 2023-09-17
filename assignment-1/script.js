@@ -124,7 +124,26 @@ function deleteBook(id) {
 }
 
 function searchBook() {
+  let keyword = document.querySelector('#search-box').value;
 
+  if (keyword === '')
+    loadSampleData();
+  else {
+    dataZoneDOM.innerHTML = '';
+
+    JSON.parse(localStorage.getItem("data")).filter(book => book.name.toLowerCase().includes(keyword))
+    .map(book => {
+      const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${book.name}</td>
+        <td>${book.author}</td>
+        <td>${categories.find((c) => c.id === book.topic).name}</td>
+        <td id=${`btn-delete-${book.id}`} class='text-danger text-underline'>Delete</td>
+      `;
+
+    dataZoneDOM.appendChild(row);
+    })
+  }
 }
 
 function onDeleteDataRow() {

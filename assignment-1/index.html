@@ -36,6 +36,8 @@
         <!-- Action -->
         <div class="width-full flex justify-end py-20 gap-normal">
           <input
+            id="search-box"
+            oninput="searchBook()"
             class="input width-200"
             type="text"
             placeholder="Search books"
@@ -107,7 +109,10 @@
 
           <!-- Dialog alert -->
           <div class="flex flex-col dialog-body gap-normal">
-            <p class="text-center">Do you want to delete <span id="book-name" class="font-bold"></span> book?</p>
+            <p class="text-center">
+              Do you want to delete
+              <span id="book-name" class="font-bold"></span> book?
+            </p>
           </div>
 
           <div class="width-full flex justify-evenly">
