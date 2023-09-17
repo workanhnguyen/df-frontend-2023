@@ -75,12 +75,12 @@
           <!-- Dialog inputs -->
           <div class="flex flex-col dialog-body gap-normal">
             <div class="flex flex-col gap-normal">
-              <label>Name</label>
-              <input class="input" type="text" />
+              <label for="name">Name</label>
+              <input id="name" class="input" type="text" />
             </div>
             <div class="flex flex-col gap-normal">
-              <label>Author</label>
-              <input class="input" type="text" />
+              <label for="author">Author</label>
+              <input id="author" class="input" type="text" />
             </div>
             <div class="flex flex-col gap-normal">
               <label>Topic</label>
@@ -89,7 +89,7 @@
           </div>
 
           <div class="width-full flex justify-end">
-            <button class="btn btn-primary">Create</button>
+            <button class="btn btn-primary" onclick="addBook()">Create</button>
           </div>
         </div>
       </div>

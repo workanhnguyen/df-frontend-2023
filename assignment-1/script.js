@@ -36,9 +36,11 @@ const sampleData = [
 
 const addBookDialogDOM = document.querySelector("#add-book-dialog");
 const deleteBookDialogDOM = document.querySelector("#delete-book-dialog");
-const categoryDOM = document.querySelector("#category");
-
 const dataZoneDOM = document.querySelector("#data-zone");
+
+const nameInputDOM = document.querySelector("#name");
+const authorInputDOM = document.querySelector("#author");
+const categoryDOM = document.querySelector("#category");
 
 function showAddBookDialog() {
   addBookDialogDOM.style.display = "flex";
@@ -67,7 +69,7 @@ function loadCategories() {
 }
 
 function loadSampleData() {
-  dataZoneDOM.innerHTML = '';
+  dataZoneDOM.innerHTML = "";
 
   JSON.parse(localStorage.getItem("data")).map((data) => {
     const row = document.createElement("tr");
@@ -82,33 +84,62 @@ function loadSampleData() {
   });
 }
 
-function deleteData(id) {
-  const listData = JSON.parse(localStorage.getItem('data'));
+function addBook() {
+  if (nameInputDOM.value !== "" && authorInputDOM !== "") {
+    let listData = JSON.parse(localStorage.getItem("data"));
 
-  const newListData = listData.filter(data => data.id !== id);
+    const newBook = new Object();
+    newBook.id = listData[listData.length - 1].id + 1;
+    newBook.name = nameInputDOM.value;
+    newBook.author = authorInputDOM.value;
+    newBook.topic = parseInt(categoryDOM.value);
+
+    listData = [...listData, newBook];
+
+    localStorage.setItem("data", JSON.stringify(listData));
+    
+    loadSampleData();
+    clearInputField();
+    hideAddBookDialog();
+
+  } else alert('Vui lòng nhập đầy đủ thông tin!');
+}
+
+function clearInputField() {
+  nameInputDOM.value = '';
+  authorInputDOM.value = '';
+}
+
+function deleteBook(id) {
+  const listData = JSON.parse(localStorage.getItem("data"));
+
+  const newListData = listData.filter((data) => data.id !== id);
   console.log(newListData);
 
-  localStorage.setItem('data', JSON.stringify(newListData));
+  localStorage.setItem("data", JSON.stringify(newListData));
 
   hideDeleteBookDialog();
 
   loadSampleData();
 }
 
-function onDeleteDataRow() {
+function searchBook() {
 
-  dataZoneDOM.addEventListener('click', (e) => {
-    if (e.target.classList.contains('text-danger')) {
-      const dataId = e.target.id.split('-')[2];
+}
+
+function onDeleteDataRow() {
+  dataZoneDOM.addEventListener("click", (e) => {
+    if (e.target.classList.contains("text-danger")) {
+      const dataId = e.target.id.split("-")[2];
 
       showDeleteBookDialog();
 
-      const data = sampleData.find(item => item.id === parseInt(dataId));
+      const data = JSON.parse(localStorage.getItem('data')).find((item) => item.id === parseInt(dataId));
       document.querySelector("#book-name").innerHTML = data.name;
 
-      document.querySelector('#btn-delete').addEventListener('click', () => {
-        deleteData(data.id);
-      })
+      document.querySelector("#btn-delete").addEventListener("click", () => {
+        deleteBook(data.id);
+      });
     }
   });
 }
