@@ -4,12 +4,13 @@ import searchIcon from "../../assets/search-icon.svg";
 import { useStateContext } from "../../contexts/ContextProvider";
 
 const Search = () => {
-  const { books, setBookBySearch } = useStateContext();
+  const { books, setBookBySearch, setPageIndex } = useStateContext();
 
   const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     setBookBySearch(books.filter((book) => book.name.toLowerCase().includes(keyword.toLowerCase())));
+    setPageIndex(1);
   }, [keyword]);
 
   return (
