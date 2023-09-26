@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import { REMOVE_BOOK } from "../../constants/constants";
 
 const DeleteDialog = () => {
-  const { showDeleteDialog, setShowDeleteDialog, deleteBook, bookDispatch, books } =
+  const { showDeleteDialog, setShowDeleteDialog, deleteBook, bookDispatch } =
     useStateContext();
 
   const handleDeleteBook = () => {
