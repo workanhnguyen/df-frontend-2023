@@ -2,7 +2,7 @@ import React from 'react'
 
 const Container = ({ children }) => {
   return (
-    <main className='container'>{children}</main>
+    <main className='container h-screen'>{children}</main>
   )
 }
 

@@ -5,6 +5,7 @@
   --primary-color-active: rgb(170, 57, 57);
   --background-color: rgb(236, 236, 236);
   --dark-gray: rgb(149, 149, 149);
+  --sub-black: rgb(65, 65, 65);
 }
 
 * {
@@ -332,6 +333,14 @@ html {
   background-color: white;
 }
 
+.bg-black {
+  background-color: black;
+}
+
+.bg-sub-black {
+  background-color: var(--sub-black);
+}
+
 .bg-gray {
   background-color: var(--background-color);
 }
@@ -350,6 +359,14 @@ html {
 
 .absolute {
   position: absolute;
+}
+
+.left-2 {
+  left: 2.5px;
+}
+
+.right-2 {
+  right: 2px;
 }
 
 .fixed {

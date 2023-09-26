@@ -4,7 +4,7 @@ import { categoryData } from "../../data";
 import { useStateContext } from "../../contexts/ContextProvider";
 
 const TableContent = () => {
-  const { booksShow, setShowDeleteDialog, setDeleteBook } = useStateContext();
+  const { booksShow, setShowDeleteDialog, setDeleteBook, mode } = useStateContext();
 
   const handleOpenDeleteDialog = (book) => {
     setDeleteBook(book);
@@ -13,7 +13,7 @@ const TableContent = () => {
 
   return (
     <div>
-      <table className="w-full border-collapse bg-white">
+      <table className={`w-full border-collapse ${mode === 'light' ? 'bg-white' : 'bg-sub-black text-white'}`}>
         <thead>
           <tr>
             <th>Name</th>
