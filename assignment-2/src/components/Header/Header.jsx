@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import blankAvatar from '../../assets/avt.png';
 import Divider from "../Divider/Divider";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const Header = () => {
+
+  const { mode, setMode } = useStateContext();
+  const toggleRef = useRef();
+
+  const handleToggleMode = () => {
+    setMode(mode === 'light' ? 'dark' : 'light');
+  }
+
+  useEffect(() => {
+    console.log(toggleRef);
+  }, [mode])
   return (
     <>
       <header className="w-full flex justify-between items-center px-10 py-20 bg-white">
@@ -11,11 +23,11 @@ const Header = () => {
   
         <section className="flex items-center gap-20">
           {/* Toggle mode button */}
-          <section className="flex items-center gap-8">
-            <div className="w-50 h-25 flex items-center p-4 bg-primary rounded-full">
-              <div className="w-20 h-20 bg-white rounded-full" />
+          <section className="flex items-center gap-8 cursor-pointer">
+            <div onClick={handleToggleMode} className="w-50 h-25 flex items-center p-4 bg-primary rounded-full">
+              <div ref={toggleRef} className="w-20 h-20 bg-white rounded-full" />
             </div>
-            <span>Light mode</span>
+            <span>{mode.charAt(0).toUpperCase() + mode.slice(1)} mode</span>
           </section>
     
           {/* Avatar & name */}

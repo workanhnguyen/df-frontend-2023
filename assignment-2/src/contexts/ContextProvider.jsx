@@ -14,6 +14,7 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [pageIndex, setPageIndex] = useState(1);
+  const [mode, setMode] = useState(localStorage.getItem("mode") ? localStorage.getItem('mode') : 'light');
 
   const [books, bookDispatch] = useReducer(
     BookReducer,
@@ -35,11 +36,22 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     if (localStorage.getItem("books") === null)
       localStorage.setItem("books", JSON.stringify(bookData));
+    if (localStorage.getItem("mode") === null)
+      localStorage.setItem("mode", "light");
   }, []);
 
   useEffect(() => {
-    setBooksShow(bookBySearch.slice((pageIndex - 1) * BOOK_PER_PAGE, pageIndex * BOOK_PER_PAGE));
+    setBooksShow(
+      bookBySearch.slice(
+        (pageIndex - 1) * BOOK_PER_PAGE,
+        pageIndex * BOOK_PER_PAGE
+      )
+    );
   }, [pageIndex, books, bookBySearch]);
+
+  useEffect(() => {
+    localStorage.setItem('mode', mode);
+  }, [mode]);
 
   return (
     <StateContext.Provider
@@ -60,6 +72,8 @@ export const ContextProvider = ({ children }) => {
         // setKeyword,
         bookBySearch,
         setBookBySearch,
+        mode,
+        setMode,
       }}
     >
       {children}
