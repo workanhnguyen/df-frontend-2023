@@ -11,7 +11,7 @@ const Search = () => {
   useEffect(() => {
     setBookBySearch(books.filter((book) => book.name.toLowerCase().includes(keyword.toLowerCase())));
     setPageIndex(1);
-  }, [keyword]);
+  }, [keyword, books]);
 
   return (
     <div className="flex items-center bg-white border-1 border-black gap-4 px-8 rounded-md overflow-hidden">
