@@ -1,8 +1,30 @@
 import React from 'react'
 
+import {
+  ActionBar,
+  AddDialog,
+  Container,
+  DeleteDialog,
+  Header,
+  Pagination,
+  TableContent,
+  Wrapper,
+} from './components'
+
 const App = () => {
   return (
-    <div>App</div>
+    <Wrapper>
+      <Header />
+
+      <Container>
+        <ActionBar />
+        <TableContent />
+        <Pagination />
+      </Container>
+
+      <AddDialog />
+      <DeleteDialog />
+    </Wrapper>
   )
 }
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { ContextProvider } from './contexts/ContextProvider'
 
 const rootElement = document.getElementById('root')
 
@@ -10,7 +11,9 @@ if (rootElement) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <React.StrictMode>
-      <App />
+      <ContextProvider>
+        <App />
+      </ContextProvider>
     </React.StrictMode>,
   )
   // If you want to start measuring performance in your app, pass a function

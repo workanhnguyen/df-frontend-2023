@@ -31,7 +31,7 @@
     "**/*.tsx",
     "**/*.d.ts",
     "**/*.js",
-    "**/*.jsx",
+    "**/*.jsx", "src/contexts/ContextProvider.tsz",
   ],
   "exclude": ["node_modules"]
 }

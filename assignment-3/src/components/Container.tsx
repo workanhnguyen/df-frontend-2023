@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const Container = () => {
-  return (
-    <div>Container</div>
-  )
-}
+const Container = ({ children }) => {
+  return <main className="container h-screen">{children}</main>;
+};
 
-export default Container
+export default Container;
