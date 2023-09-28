@@ -4,7 +4,7 @@ import categoryData from '../data/categories'
 import { useStateContext } from '../contexts/ContextProvider'
 import { Book } from '../models/Book'
 
-const TableContent = () => {
+const TableContent: React.FC = () => {
   const context = useStateContext()
   const booksShow = context?.booksShow
   const setShowDeleteDialog = context?.setShowDeleteDialog

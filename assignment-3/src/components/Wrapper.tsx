@@ -11,7 +11,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
   return (
     <div
       className={`w-full flex flex-col items-center ${
-        mode === 'light' ? 'bg-gray' : 'bg-dark-gray'
+        mode === 'light' ? 'bg-gray-200' : 'bg-black/30'
       }`}
     >
       {children}

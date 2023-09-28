@@ -14,10 +14,6 @@ const Header: React.FC = () => {
     setMode!(mode === 'light' ? 'dark' : 'light');
   };
 
-  useEffect(() => {
-    console.log(toggleRef);
-  }, [mode]);
-
   return (
     <>
       <header

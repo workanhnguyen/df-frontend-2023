@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStateContext } from '../contexts/ContextProvider'
 
-const Divider = () => {
+const Divider: React.FC = () => {
   const context = useStateContext();
   const mode = context?.mode;
   return (

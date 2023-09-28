@@ -3,12 +3,13 @@ import Search from "./Search";
 import Button from "./Button";
 import { useStateContext } from "../contexts/ContextProvider";
 
-const ActionBar = () => {
+const ActionBar: React.FC = () => {
   const context = useStateContext();
   const setShowAddDialog = context?.setShowAddDialog;
 
   const handleOpenAddDialog = () => {
     setShowAddDialog!(true);
+    console.log(setShowAddDialog);
   }
   return (
     <section className="flex justify-between items-center py-16">

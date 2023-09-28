@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import searchIcon from "../assets/search-icon.svg";
 import { useStateContext } from "../contexts/ContextProvider";
 
-const Search = () => {
+const Search: React.FC = () => {
   const context = useStateContext();
   const books = context?.books;
   const setBookBySearch = context?.setBookBySearch;
