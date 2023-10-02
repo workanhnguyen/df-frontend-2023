@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <>
+    <div className='absolute top-0 w-full'>
       <header
         className={`w-full flex justify-between items-center px-3 py-4 ${
           mode === 'light' ? 'bg-white' : 'bg-slate-700 text-white'
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
         </section>
       </header>
       <Divider />
-    </>
+    </div>
   )
 }
 

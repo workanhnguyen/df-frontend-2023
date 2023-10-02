@@ -11,3 +11,4 @@ export { default as Search } from './Search';
 export { default as SelectorWithLabel } from './SelectorWithLabel';
 export { default as TableContent } from './TableContent';
 export { default as Wrapper } from './Wrapper';
+export { default as NotFound } from './NotFound';

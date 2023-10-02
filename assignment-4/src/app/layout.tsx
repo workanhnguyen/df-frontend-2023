@@ -18,12 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen bg-white`}>
+      <body
+        className={`${inter.className} flex flex-col min-h-screen bg-white`}
+      >
         <ContextProvider>
           <Header />
-          {children}
+          <div className="flex mt-5">{children}</div>
           <AddDialog />
-      <DeleteDialog />
+          <DeleteDialog />
         </ContextProvider>
       </body>
     </html>
