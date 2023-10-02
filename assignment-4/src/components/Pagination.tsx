@@ -4,10 +4,11 @@ import React, { useEffect, useState, memo } from 'react'
 import { useStateContext } from '../contexts/ContextProvider'
 import { BOOK_PER_PAGE } from '../constants/constants'
 import { Book } from '../models/Book'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const Pagination: React.FC = () => {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const context = useStateContext()
   const books: Book[] | undefined = context?.books
@@ -24,8 +25,12 @@ const Pagination: React.FC = () => {
 
   const handleChangePage = (pageNumber: number) => {
     setPageIndex && setPageIndex(pageNumber)
-    // router.push(`${router}`)
-    console.log(searchParams.entries());
+
+    if (searchParams.get('q') !== null) {
+      router.push(`?q=${searchParams.get('q')}&page=${pageNumber}`);
+    } else {
+      router.push(`?page=${pageNumber}`);
+    }
   }
 
   const pageNumbers = Array.from({ length: bookCount }, (_, index) => index + 1)
