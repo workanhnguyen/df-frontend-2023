@@ -7,6 +7,7 @@ import cancelIcon from '../assets/cancel-icon.svg'
 import Button from './Button'
 import { REMOVE_BOOK } from '../constants/constants'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const DeleteDialog: React.FC = () => {
   const context = useStateContext()
@@ -14,6 +15,8 @@ const DeleteDialog: React.FC = () => {
   const setShowDeleteDialog = context?.setShowDeleteDialog
   const deleteBook = context?.deleteBook
   const bookDispatch = context?.bookDispatch
+
+  const router = useRouter();
 
   const handleDeleteBook = () => {
     bookDispatch!({ type: REMOVE_BOOK, payload: deleteBook?.id })
@@ -24,6 +27,9 @@ const DeleteDialog: React.FC = () => {
     localStorage.setItem('books', JSON.stringify(newBook))
 
     setShowDeleteDialog!(false)
+
+    router.replace("/");
+    
   }
 
   if (!showDeleteDialog) return null;

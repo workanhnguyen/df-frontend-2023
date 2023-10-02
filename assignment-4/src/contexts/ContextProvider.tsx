@@ -39,7 +39,7 @@ interface ContextProviderProps {
   children: ReactNode
 }
 
-const initialBook: Book = { id: -1, name: '', author: '', topic: -1 }
+const initialBook: Book = { id:0, name: '', author: '', topic: { id: 0, name: '' }}
 
 // Create the context
 const StateContext = createContext<ContextValue | null>(null)

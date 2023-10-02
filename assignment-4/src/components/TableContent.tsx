@@ -5,6 +5,7 @@ import React from 'react'
 import categoryData from '../data/categories'
 import { useStateContext } from '../contexts/ContextProvider'
 import { Book } from '../models/Book'
+import Link from 'next/link'
 
 const TableContent: React.FC = () => {
   const context = useStateContext()
@@ -51,13 +52,12 @@ const TableContent: React.FC = () => {
                 {book.author}
               </td>
               <td className="border-2 border-solid border-gray-800 p-2 text-left">
-                {categoryData.find((c) => c.id === book.topic)?.name || ''}
+                {book.topic.name}
               </td>
-              <td
-                onClick={() => handleOpenDeleteDialog(book)}
-                className="text-red-500 underline border-2 border-solid border-gray-800 p-2 text-left cursor-pointer"
-              >
-                Delete
+              <td className="text-primary border-2 border-solid border-gray-800 p-2 text-left cursor-pointer">
+                <span className='underline' onClick={() => handleOpenDeleteDialog(book)}>Delete</span>
+                &nbsp;|&nbsp;
+                <Link className='underline' href={`/book/${book.id}`}>View</Link>
               </td>
             </tr>
           ))}

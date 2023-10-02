@@ -7,6 +7,8 @@ import { useStateContext } from '../contexts/ContextProvider'
 import { ADD_BOOK } from '../constants/constants'
 import { Book } from '../models/Book'
 import Image from 'next/image'
+import categoryData from '../data/categories'
+import { Category } from '../models/Category';
 
 const AddDialog: React.FC = () => {
   const context = useStateContext()
@@ -29,7 +31,7 @@ const AddDialog: React.FC = () => {
         }, -1) + 1,
       name,
       author,
-      topic: topicId,
+      topic: categoryData.filter((c: Category) => c.id === topicId)[0],
     }
 
     bookDispatch!({ type: ADD_BOOK, payload: book })
