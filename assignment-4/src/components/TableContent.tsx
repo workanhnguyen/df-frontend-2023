@@ -1,8 +1,6 @@
 'use client'
 
 import React from 'react'
-
-import categoryData from '../data/categories'
 import { useStateContext } from '../contexts/ContextProvider'
 import { Book } from '../models/Book'
 import Link from 'next/link'

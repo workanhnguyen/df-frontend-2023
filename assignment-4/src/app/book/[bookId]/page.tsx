@@ -15,9 +15,6 @@ export default function BookDetail({
 }: {
   params: BookDetailProps
 }) {
-  // const params = useSearchParams()
-  // console.log(params.get('j'))
-  // console.log(params.get('h'))
 
   const context = useStateContext();
   const setShowDeleteDialog = context?.setShowDeleteDialog;

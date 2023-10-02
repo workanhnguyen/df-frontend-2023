@@ -2,10 +2,7 @@ import React from 'react'
 
 import {
   ActionBar,
-  AddDialog,
   Container,
-  DeleteDialog,
-  Header,
   Pagination,
   TableContent,
   Wrapper,
@@ -14,7 +11,6 @@ import {
 export default function Home() {
   return (
     <Wrapper>
-
       <Container>
         <ActionBar />
         <TableContent />
