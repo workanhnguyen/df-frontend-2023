@@ -1,10 +1,11 @@
 'use client'
+
 import React, { useLayoutEffect, useState } from 'react'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 import { Book } from '../../../models/Book'
 import { useStateContext } from '../../../contexts/ContextProvider'
-import { notFound } from 'next/navigation'
 
 type BookDetailProps = {
   bookId: string
