@@ -17,14 +17,14 @@ export default function BookDetail({
   params: BookDetailProps
 }) {
 
-  const context = useStateContext();
+  const context = useStateContext()
   const setShowDeleteDialog = context?.setShowDeleteDialog;
   const setDeleteBook = context?.setDeleteBook;
 
   const [bookDetail, setBookDetail] = useState<Book | null>(null)
 
   const handleDeleteBook = () => {
-    setShowDeleteDialog && setShowDeleteDialog(true);
+    setShowDeleteDialog && setShowDeleteDialog(true)
     setDeleteBook && setDeleteBook(bookDetail!);
   }
 
@@ -34,10 +34,10 @@ export default function BookDetail({
     const book = books.filter((book: Book) => book.id === parseInt(bookId))[0];
 
     if (book !== undefined)
-      setBookDetail(book);
+      setBookDetail(book)
     else
-      notFound();
-  }, [])
+      notFound()
+  }, [bookId])
 
   return (
     <div className="p-4 mt-16">
